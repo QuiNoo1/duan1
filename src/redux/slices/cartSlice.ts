@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // Define interfaces for better type safety
 export interface Product {
-    id?: string | number;
-    _id?: string | number;
+    id?: string ;
+    _id?: string ;
     name?: string;
     price?: number;
     img?: string;
@@ -12,7 +12,7 @@ export interface Product {
 }
 
 export interface CartItem {
-    id: string | number;
+    id: string;
     name: string;
     price: number;
     img?: string;

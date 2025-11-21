@@ -12,7 +12,7 @@ import { addToCart, removeFromCart } from "@/redux/slices/cartSlice";
 
 export default function Product() {
         interface CartItem {
-            id: number;
+            id: string ;
             quantity: number;
             name: string;
             img: string;
@@ -25,7 +25,7 @@ export default function Product() {
 
     const { id } = useParams();
         interface Product {
-            id: number;
+            id: string;
             title: string;
             category: string;
             price: number;
@@ -38,7 +38,9 @@ export default function Product() {
     const [loading, setLoading] = useState(true);
     const dispatch = useAppDispatch();
     const cartItems = useAppSelector((state: RootState) => state.cart?.items ?? []);
-    const itemInCart = product ? cartItems.find((item: CartItem) => item.id === product.id) : null;
+    const itemInCart = product
+  ? cartItems.find(item => item.id === product.id)
+  : null;
 
     useEffect(() => {
         if (!id) return;
